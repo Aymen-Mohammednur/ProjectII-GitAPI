@@ -1,3 +1,8 @@
+const cardDOM = document.querySelector("#cardTemplate");
+const deckDOM = document.querySelector(".Cards__lists");
+const navList = document.querySelectorAll(".Navigation__list");
+const loaderDOM = document.querySelector(".loader");
+
 function RepoDetail(data) {
   const {
     owner,
@@ -20,4 +25,9 @@ function RepoDetail(data) {
     open_issues_count,
     avatar_url,
   };
+}
+function getPopulars(lang = "All") {
+  return fetchPopularRepos(lang).then((data) => {
+    return data.items.map((item) => new RepoDetail(item));
+  });
 }
