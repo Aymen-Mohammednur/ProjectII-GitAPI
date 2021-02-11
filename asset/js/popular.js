@@ -31,3 +31,21 @@ function getPopulars(lang = "All") {
     return data.items.map((item) => new RepoDetail(item));
   });
 }
+function renderCard(index, repoDetail) {
+  const cloneCardDOM = cardDOM.cloneNode(true);
+  cloneCardDOM.querySelector(".Cards__index").textContent = index;
+  cloneCardDOM.querySelector(".Cards__title").textContent = repoDetail.name;
+  cloneCardDOM.querySelector(".Cards__url").href = repoDetail.html_url;
+  cloneCardDOM.querySelector(".Cards__name").textContent = repoDetail.login;
+  cloneCardDOM.querySelector(".Cards__star").textContent =
+    repoDetail.stargazers_count;
+  cloneCardDOM.querySelector(".Cards__fork").textContent =
+    repoDetail.forks_count;
+  cloneCardDOM.querySelector(".Cards__issues").textContent =
+    repoDetail.open_issues_count;
+  cloneCardDOM.querySelector(".Cards__avatar").src = repoDetail.avatar_url;
+  cloneCardDOM.querySelector(".Cards__avatar").alt = repoDetail.name;
+
+  show(cloneCardDOM);
+  deckDOM.appendChild(cloneCardDOM);
+}
