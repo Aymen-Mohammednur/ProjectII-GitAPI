@@ -27,3 +27,11 @@ body {
     text-decoration: none;
     color: black
 }
+.Main__container {
+    margin-top: 2rem;
+    width: 100%;
+}
+.Languages__box {
+    display: flex;
+    justify-content: center;
+}
