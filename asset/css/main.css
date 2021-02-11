@@ -7,6 +7,33 @@
 body {
     font-family: 'Roboto', sans-serif;
 }
+
+button {
+    height: 2rem;
+    padding: 0.5rem;
+    border-radius: 3px;
+    border: none;
+    font-size: 1rem;
+    text-align: center;
+    text-decoration: none;
+    max-width: 200px;
+    letter-spacing: 0.2rem;
+    background: rgb(197, 79, 79);
+    cursor: pointer;
+    outline: none;
+}
+
+input {
+    height: 2rem;
+    padding: 0.5rem;
+    border: none;
+    outline: none;
+}
+
+button:disabled {
+    background-color: #ccc;
+}
+
 .Navigation__container {
     margin: 2rem;
     width:100%;
@@ -27,11 +54,172 @@ body {
     text-decoration: none;
     color: black
 }
+
+.active a, .active{
+    color : rgb(197, 79, 79);
+}
+
+.Navigation__list:hover {
+    cursor: pointer;
+}
+
 .Main__container {
     margin-top: 2rem;
     width: 100%;
 }
+
 .Languages__box {
     display: flex;
     justify-content: center;
 }
+
+.Cards__lists {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 4rem;
+    justify-content: center;
+    flex-grow: 0;
+}
+
+.Cards__list {
+    background: #ccc;
+    padding: 2rem 0.4rem;
+    text-align: center;
+    font-size: 1.1rem;
+    border-radius: 3px;
+    box-shadow: 0 2px 5px 0 #ccc;
+    margin: 1rem;
+    width: 250px;
+}
+
+.Cards__details {
+    list-style: none;
+    text-align: left;
+    margin: 1rem;
+}
+
+.Cards__detail {
+    margin-top: 0.5rem
+}
+
+.Cards--icon {
+    text-align: center;
+    padding: 0 0.2rem;
+    width: 2rem;
+}
+.Cards__title, .Cards__name {
+  overflow-wrap: break-word;
+}
+
+.Cards__title {
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.Cards__url, .Cards__url:visited {
+  color:rgb(197, 79, 79);
+  text-decoration: none;
+}
+
+.Cards__avatar{
+  width:150px;
+  height: 150px;
+  margin: 1rem 0;
+}
+
+.Cards__user--icon {
+  color:rgb(255, 193, 79)
+}
+
+.Cards__star--icon {
+  color:rgb(235, 231, 41)
+}
+
+.Cards__fork--icon { 
+  color: rgb(92, 209, 255)
+}
+
+.Cards__issues--icon {
+  color: rgb(233, 81, 81)
+}
+
+.Cards__location--icon {
+  color: rgb(211, 66, 255)
+}
+
+.Cards__repo--icon{
+  color: rgb(97, 93, 93)
+}
+
+.Cards__followers--icon{
+  color: rgb(30, 123, 230);
+}
+
+.Cards__watching--icon{
+  color:rgb(133, 67, 67)
+}
+
+/*
+loading taken from: https://projects.lukehaas.me/css-loaders/
+*/
+.loader,
+.loader:before,
+.loader:after {
+  background: #000;
+  -webkit-animation: load1 1s infinite ease-in-out;
+  animation: load1 1s infinite ease-in-out;
+  width: 1em;
+  height: 4em;
+}
+.loader {
+  color: #000;
+  text-indent: -9999em;
+  margin: 88px auto;
+  position: relative;
+  font-size: 11px;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+.loader:before,
+.loader:after {
+  position: absolute;
+  top: 0;
+  content: '';
+}
+.loader:before {
+  left: -1.5em;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+.loader:after {
+  left: 1.5em;
+}
+@-webkit-keyframes load1 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 0;
+    height: 4em;
+  }
+  40% {
+    box-shadow: 0 -2em;
+    height: 5em;
+  }
+}
+@keyframes load1 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 0;
+    height: 4em;
+  }
+  40% {
+    box-shadow: 0 -2em;
+    height: 5em;
+  }
+}
+
+
