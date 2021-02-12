@@ -45,3 +45,18 @@ function UserDetail(data) {
       score,
     };
 }
+
+function renderUser(data) {
+    const cloneUserDOM = userDOM.cloneNode(true);
+    cloneUserDOM.querySelector(".Battlers__user--img").src = data.avatar_url;
+    cloneUserDOM.querySelector(".Battlers__user--username").textContent =
+      data.name || data.login;
+    cloneUserDOM
+      .querySelector(".Battlers__user--close")
+      .addEventListener("click", () => {
+        removeUser(cloneUserDOM);
+      });
+    cloneUserDOM.setAttribute("data", JSON.stringify(data));
+    show(cloneUserDOM, "flex");
+    usersListDOM.appendChild(cloneUserDOM);
+}
