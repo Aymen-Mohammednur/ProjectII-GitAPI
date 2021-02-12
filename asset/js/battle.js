@@ -60,3 +60,19 @@ function renderUser(data) {
     show(cloneUserDOM, "flex");
     usersListDOM.appendChild(cloneUserDOM);
 }
+
+function removeUser(element) {
+    element.remove();
+}
+
+function addUser() {
+    const username = inputUserDOM.value;
+    fetchUser(username)
+        .then((data) => {
+        renderUser(UserDetail(data));
+        battleButton.removeAttribute("disabled");
+        })
+        .catch(() => {});
+    inputUserDOM.value = "";
+    addUserButton.setAttribute("disabled", true);
+}
