@@ -49,3 +49,19 @@ function renderCard(index, repoDetail) {
   show(cloneCardDOM);
   deckDOM.appendChild(cloneCardDOM);
 }
+function renderCards(repoDetails) {
+  hide(loaderDOM);
+  repoDetails.map((repo, index) => {
+    renderCard(index + 1, repo);
+  });
+}
+
+function navigate(e) {
+  element = e.target;
+  selectNav(element);
+  clearCards();
+  show(loaderDOM);
+  getPopulars(element.textContent).then((data) => {
+    renderCards(data);
+  });
+}
