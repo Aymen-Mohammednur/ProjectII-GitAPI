@@ -1,0 +1,25 @@
+.Battlers__box {
+    width: 400px;
+    background: #ddd;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    margin: 0 auto;
+}
+
+.Battlers__input {
+    margin:0.5rem 1rem;
+    display: flex;
+    align-items: center;
+}
+.Battlers__add {
+    margin: 0.5rem 1rem;
+}
+.Battlers__users{
+    margin: 1rem
+}
+.Battlers__submit{
+    margin: 1rem auto;
+    
+}
