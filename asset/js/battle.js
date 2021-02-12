@@ -76,3 +76,15 @@ function addUser() {
     inputUserDOM.value = "";
     addUserButton.setAttribute("disabled", true);
 }
+
+function getList() {
+    const result = Array.from(
+      document
+        .querySelector(".Battlers__users")
+        .querySelectorAll(".Battlers__user")
+    ).map((element) => {
+      data = JSON.parse(element.getAttribute("data"));
+      return new UserDetail(data);
+    });
+    return result;
+}
