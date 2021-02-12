@@ -49,13 +49,22 @@ function renderCard(index, repoDetail) {
   show(cloneCardDOM);
   deckDOM.appendChild(cloneCardDOM);
 }
+function onClickEventToNavitgator() {
+  navList.forEach((e) => {
+    e.addEventListener("click", navigate);
+  });
+}
+
 function renderCards(repoDetails) {
   hide(loaderDOM);
   repoDetails.map((repo, index) => {
     renderCard(index + 1, repo);
   });
 }
-
+function selectNav(element) {
+  document.querySelector(".Languages__box .active").classList.remove("active");
+  element.classList.add("active");
+}
 function navigate(e) {
   element = e.target;
   selectNav(element);
