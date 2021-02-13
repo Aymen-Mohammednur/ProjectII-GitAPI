@@ -88,3 +88,16 @@ function getList() {
     });
     return result;
 }
+
+function calculateScore(user) {
+
+    let score = 0
+  
+    score =  (user.forks * 1.5) +
+      (user.open_issues * 1.0) +
+      (user.stargazers_count * 1.4) +
+      (user.watchers * 1.3) +
+      (user.followers * 1.2) +
+      (user.public_repos);
+    return score;
+}
