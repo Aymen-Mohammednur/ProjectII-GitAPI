@@ -74,3 +74,10 @@ function navigate(e) {
     renderCards(data);
   });
 }
+(function main() {
+  show(loaderDOM);
+  onClickEventToNavitgator();
+  getPopulars().then((data) => {
+    renderCards(data);
+  });
+})();
