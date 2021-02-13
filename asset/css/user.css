@@ -1,0 +1,94 @@
+.Language__box {
+    background: #ddd;
+    padding: 1rem;
+    margin: 1rem;
+    min-width: 250px;
+    box-shadow: 0 5px 2px 0 #ccc;
+    border-radius: 10px;
+}
+
+.Language__name {
+    font-size: 2rem;
+}
+
+.Language__repository--lists{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.Language__repository--list{
+    list-style: none;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    margin: 0.4rem;
+    background-color: #ccc;
+    box-shadow: 0 3px 3px 0 #ccc;
+}
+
+.Language__repository--a, .Language__repository--a:visited{
+    text-decoration: none;
+    color: rgb(197, 79, 79);
+    overflow-wrap: break-word;
+
+}
+
+.Language__repository--a:hover {
+    color: black;
+}
+
+.Battlers__box {
+    width: 400px;
+    background: #ddd;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.Battlers__input {
+    margin:0.5rem 1rem;
+    display: flex;
+    align-items: center;
+}
+.Battlers__add {
+    margin: 0.5rem 1rem;
+}
+.Battlers__users{
+    margin: 1rem
+}
+.Battlers__submit{
+    margin: 1rem auto;
+    
+}
+.Battlers__user{
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    min-width: 250px;
+    box-shadow: 0 5px 2px 0 #ccc;
+}
+.Battlers__user--username{
+    vertical-align: middle;
+}
+.Battlers__user--img{
+    margin: 0 0.5rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.Battlers__user--username{
+    margin-right: 1rem;
+}
+.Battlers__user--close{
+    color: red;
+    font-size: 1.2rem;
+    margin-left: auto;
+    margin-right: 0.5rem;
+}
+.Battlers__user--close:hover{
+    color: rgb(197, 79, 79);
+}

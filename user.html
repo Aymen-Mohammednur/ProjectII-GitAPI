@@ -11,6 +11,38 @@
     <link rel="stylesheet" href="./asset/css/user.css">
 </head>
 <body>
+    <header class="Navigation__container">
+        <nav>
+          <ul class="Navigation__lists">
+            <li class="Navigation__list">
+              <a href="./index.html">Popular Repos</a>
+            </li>
+            <li class="Navigation__list">
+              <a href="./battle.html">Battle Users</a>
+            </li>
+            <li class="Navigation__list active">
+              <a href="./user.html">User</a>
+            </li>
+          </ul>
+        </nav>
+    </header>
+    <main class="Main__container">
+        <section class="Battlers__box">
+          <div class="Battlers__input">
+            <input class="Battlers__input--input" />
+            <div class="Battlers__add"><button disabled>Search</button></div>
+          </div>
+        </section>
+        <div class="loader" style="display:none">Loading...</div>
+        <section class="Cards__lists">
+        </section>
+    </main>
+      <!-- Battlers User Template-->
+    <div class="Language__box" style="display:none">
+        <h4 class="Language__name"></h4>
+        <p class="Language__repository"></p>
+    </div>
+    
     
     <script src="./asset/js/app.js"></script>
     <script src="./asset/js/api.js"></script>
