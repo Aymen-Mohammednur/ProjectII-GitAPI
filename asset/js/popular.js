@@ -26,11 +26,13 @@ function RepoDetail(data) {
     avatar_url,
   };
 }
+
 function getPopulars(lang = "All") {
   return fetchPopularRepos(lang).then((data) => {
     return data.items.map((item) => new RepoDetail(item));
   });
 }
+
 function renderCard(index, repoDetail) {
   const cloneCardDOM = cardDOM.cloneNode(true);
   cloneCardDOM.querySelector(".Cards__index").textContent = index;
@@ -49,11 +51,6 @@ function renderCard(index, repoDetail) {
   show(cloneCardDOM);
   deckDOM.appendChild(cloneCardDOM);
 }
-function onClickEventToNavitgator() {
-  navList.forEach((e) => {
-    e.addEventListener("click", navigate);
-  });
-}
 
 function renderCards(repoDetails) {
   hide(loaderDOM);
@@ -61,10 +58,18 @@ function renderCards(repoDetails) {
     renderCard(index + 1, repo);
   });
 }
+
+function onClickEventToNavitgator() {
+  navList.forEach((e) => {
+    e.addEventListener("click", navigate);
+  });
+}
+
 function selectNav(element) {
   document.querySelector(".Languages__box .active").classList.remove("active");
   element.classList.add("active");
 }
+
 function navigate(e) {
   element = e.target;
   selectNav(element);
@@ -74,7 +79,8 @@ function navigate(e) {
     renderCards(data);
   });
 }
-(function main() {
+
+(function initialization() {
   show(loaderDOM);
   onClickEventToNavitgator();
   getPopulars().then((data) => {
