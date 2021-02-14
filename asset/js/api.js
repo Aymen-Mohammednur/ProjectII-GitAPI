@@ -14,3 +14,12 @@ function fetchFromUrl(url) {
         console.error("error:: ", err);
     });
 }
+function fetchPopularRepos(lang='all') {
+    return fetchFromUrl(
+      `/search/repositories?q=stars:%3E1+language:${lang}&sort=stars&order=desc&type=Repositories`
+    );
+}
+
+function fetchUser(username) {
+    return fetchFromUrl(`/users/${username}`);
+}
