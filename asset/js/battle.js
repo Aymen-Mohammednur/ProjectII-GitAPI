@@ -109,3 +109,32 @@ function calculateSum(accumulator, repo) {
     accumulator.watchers += repo.watchers;
     return accumulator;
 }
+
+function renderCard(index, userDetail) {
+    const cloneCardDOM = cardDOM.cloneNode(true);
+    cloneCardDOM.querySelector(".Cards__index").textContent = index;
+    cloneCardDOM.querySelector(".Cards__score").textContent = userDetail.score;
+    cloneCardDOM.querySelector(".Cards__username").textContent = userDetail.login;
+    cloneCardDOM.querySelector(".Cards__url").href = userDetail.html_url;
+    cloneCardDOM.querySelector(".Cards__name").textContent =
+      userDetail.name || userDetail.login;
+    cloneCardDOM.querySelector(".Cards__star").textContent =
+      userDetail.stargazers_count;
+    cloneCardDOM.querySelector(".Cards__fork").textContent = userDetail.forks;
+    cloneCardDOM.querySelector(".Cards__issues").textContent =
+      userDetail.open_issues;
+    cloneCardDOM.querySelector(".Cards__avatar").src = userDetail.avatar_url;
+    cloneCardDOM.querySelector(".Cards__avatar").alt = userDetail.name;
+    cloneCardDOM.querySelector(".Cards__repos").textContent = userDetail.public_repos;
+    cloneCardDOM.querySelector(".Card__location").textContent = userDetail.location;
+    show(cloneCardDOM);
+    deckDOM.appendChild(cloneCardDOM);
+}
+
+function renderCards(usersList) {
+    hide(loaderDOM);
+    clearCards();
+    usersList.map((user, index) => {
+      renderCard(index + 1, user);
+    });
+}
