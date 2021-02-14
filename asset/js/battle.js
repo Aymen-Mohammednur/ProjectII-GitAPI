@@ -101,3 +101,11 @@ function calculateScore(user) {
       (user.public_repos);
     return score;
 }
+
+function calculateSum(accumulator, repo) {
+    accumulator.forks += repo.forks;
+    accumulator.open_issues += repo.open_issues;
+    accumulator.stargazers_count += repo.stargazers_count;
+    accumulator.watchers += repo.watchers;
+    return accumulator;
+}
