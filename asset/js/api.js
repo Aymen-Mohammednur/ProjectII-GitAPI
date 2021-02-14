@@ -23,3 +23,44 @@ function fetchPopularRepos(lang='all') {
 function fetchUser(username) {
     return fetchFromUrl(`/users/${username}`);
 }
+function fetchUserRepoWithLang(username) {
+    return fetch("https://api.github.com/graphql", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "token b98c4245964820250563ab6342f92b5e53328cf6",
+      },
+      body: JSON.stringify({
+                    query :` { 
+            repositoryOwner(login:"${username}") { 
+                repositories(first:100) {
+                edges {
+                node {
+                    name
+                    url
+                    languages(first: 100, orderBy: {field: SIZE, direction: DESC}) {
+                    totalCount
+                    totalSize
+                    edges {
+                        size
+                        node {
+                            name
+                        }
+                    }
+                    
+                    }
+                }
+                }
+                }
+            }
+            }
+        `
+      }),
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+       
+        return data.data;
+      })
+      .catch((error)=>{console.log("Couldn't complete fetch: ", error)});
+}
