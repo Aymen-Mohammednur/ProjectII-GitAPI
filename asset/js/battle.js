@@ -138,3 +138,21 @@ function renderCards(usersList) {
       renderCard(index + 1, user);
     });
 }
+
+function battleUsers() {
+    const users = getList();
+    show(loaderDOM);
+    Promise.all(
+      users.map((data) =>
+        fetchFromUrl(data.repos_url + "?per_page=" + data.public_repos)
+      )
+    ).then((allUsersRepos) => {
+      for (let index = 0; index < allUsersRepos.length; index++) {
+        const userRepos = allUsersRepos[index];
+        users[index] = userRepos.reduce(calculateSum, users[index]);
+      }
+      users.forEach((user) => (user.score = calculateScore(user)));
+      users.sort((a, b) => b.score - a.score);
+      renderCards(users);
+    });
+}
