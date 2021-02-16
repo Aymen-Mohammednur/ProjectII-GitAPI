@@ -31,3 +31,24 @@ function getRepoWithLanguage(username = "aben-bel") {
     return repos;
   });
 }
+
+
+function PriorityQueue() {
+  this.elements = [];
+  this.push = (item) => {
+    if (this.elements.length === 0) {
+      this.elements.push(item);
+      return;
+    }
+    let left = 0, right = this.elements.length;
+    while(left < right) {
+        let mid = Math.floor(left + (right - left) / 2);
+        if(this.elements[mid].percent < item.percent) {
+            right = mid;
+        } else {
+            left = mid + 1
+        }
+    }
+    this.elements.splice(left, 0, item);
+  };
+};
