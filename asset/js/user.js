@@ -52,3 +52,20 @@ function PriorityQueue() {
     this.elements.splice(left, 0, item);
   };
 };
+
+getListOfLanguages = (repositories) => {
+  const languages = {};
+  repositories.forEach((repo) => {
+    const name = repo.repository;
+    const url = repo.url;
+    repo.languages.forEach((lang) => {
+      const { percent, language } = lang;
+      if (!languages[language]) {
+        languages[language] = new PriorityQueue();
+      }
+      languages[language].push({ name, percent, url });
+    });
+  });
+  console.log(languages);
+  return languages;
+};
