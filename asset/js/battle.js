@@ -58,7 +58,6 @@ function renderUser(data) {
       });
     cloneUserDOM.setAttribute("data", JSON.stringify(data));
     show(cloneUserDOM, "flex");
-    usersListDOM.appendChild(cloneUserDOM);
 }
 
 function removeUser(element) {
@@ -105,7 +104,7 @@ function calculateScore(user) {
 function calculateSum(accumulator, repo) {
     accumulator.forks += repo.forks;
     accumulator.open_issues += repo.open_issues;
-    accumulator.stargazers_count += repo.stargazers_count;
+    accumulator.stargazers_count = repo.stargazers_count;
     accumulator.watchers += repo.watchers;
     return accumulator;
 }
@@ -156,3 +155,9 @@ function battleUsers() {
       renderCards(users);
     });
 }
+
+(function () {
+    addUserButton.addEventListener("click", addUser);
+    inputUserDOM.addEventListener("keyup", (e)=> inputDetected(e,addUser, addUserButton));
+    battleButton.addEventListener("click", battleUsers);
+})();
