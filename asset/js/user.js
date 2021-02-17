@@ -124,3 +124,12 @@ function search() {
     renderAllLanguages(sortedKeys, lang);
   });
 }
+
+
+
+(function () {
+  searchBtnDOM.addEventListener("click", search);
+  inputDOM.addEventListener("keyup", (e) =>
+    inputDetected(e, search, searchBtnDOM)
+  );
+})();
