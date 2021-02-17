@@ -1,6 +1,7 @@
 const languageDOM = document.querySelector(".Language__box");
 const deckDOM = document.querySelector(".Cards__lists");
 const inputDOM = document.querySelector(".Battlers__input--input");
+const inputOauth = document.querySelector(".oauth")
 const searchBtnDOM = document
   .querySelector(".Battlers__add")
   .querySelector("button");
@@ -9,8 +10,8 @@ const loaderDOM = document.querySelector(".loader");
 let username = "aben-bel";
 
 
-function getRepoWithLanguage(username = "aben-bel") {
-  return fetchUserRepoWithLang(username).then((data) => {
+function getRepoWithLanguage(username = "aben-bel", token) {
+  return fetchUserRepoWithLang(username, token).then((data) => {
     // return data;
     //  console.log(data);
     let repositories = data.repositoryOwner.repositories.edges;
@@ -114,11 +115,13 @@ renderAllLanguages = (sortedKeys, lang) => {
 };
 
 function search() {
-  if (inputDOM.value === "") return;
+  if (inputDOM.value === "" && inputOauth.value === "") return;
+
   clearCards();
   show(loaderDOM);
   username = inputDOM.value;
-  const reposToLang = getRepoWithLanguage(username).then((repos) => {
+  token = inputOauth.value;
+  const reposToLang = getRepoWithLanguage(username, token).then((repos) => {
     const lang = getListOfLanguages(repos);
     const sortedKeys = getSortedLanguageKeys(lang);
     renderAllLanguages(sortedKeys, lang);
