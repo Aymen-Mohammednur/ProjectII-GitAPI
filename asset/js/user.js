@@ -112,3 +112,15 @@ renderAllLanguages = (sortedKeys, lang) => {
     renderLanguage(key, lang[key].elements, index + 1);
   });
 };
+
+function search() {
+  if (inputDOM.value === "") return;
+  clearCards();
+  show(loaderDOM);
+  username = inputDOM.value;
+  const reposToLang = getRepoWithLanguage(username).then((repos) => {
+    const lang = getListOfLanguages(repos);
+    const sortedKeys = getSortedLanguageKeys(lang);
+    renderAllLanguages(sortedKeys, lang);
+  });
+}
