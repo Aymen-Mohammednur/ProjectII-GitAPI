@@ -89,3 +89,20 @@ renderLanguage = (language, repositories, index) => {
   show(cloneLanguageDOM);
   deckDOM.appendChild(cloneLanguageDOM);
 };
+
+renderListOfRepositories = (repositories, username) => {
+  const ul = document.createElement("ul");
+  ul.className = "Language__repository--lists";
+  repositories.forEach(({ name, percent, url }) => {
+    const li = document.createElement("li");
+    li.className = "Language__repository--list";
+    const a = document.createElement("a");
+    a.className = " Language__repository--a";
+    a.href = url;
+    a.target = "_blank";
+    a.textContent = `${name} | ${percent.toFixed()}%`;
+    li.appendChild(a);
+    ul.appendChild(li);
+  });
+  return ul;
+};
