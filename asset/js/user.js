@@ -106,3 +106,9 @@ renderListOfRepositories = (repositories, username) => {
   });
   return ul;
 };
+
+renderAllLanguages = (sortedKeys, lang) => {
+  sortedKeys.forEach((key, index) => {
+    renderLanguage(key, lang[key].elements, index + 1);
+  });
+};
