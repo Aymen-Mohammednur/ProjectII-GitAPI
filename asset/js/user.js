@@ -69,3 +69,9 @@ getListOfLanguages = (repositories) => {
   console.log(languages);
   return languages;
 };
+
+getSortedLanguageKeys = (languages) => {
+  return Object.keys(languages).sort(
+    (a, b) => languages[b].elements.length - languages[a].elements.length
+  );
+};
