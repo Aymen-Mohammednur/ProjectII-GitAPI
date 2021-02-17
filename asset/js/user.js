@@ -75,3 +75,17 @@ getSortedLanguageKeys = (languages) => {
     (a, b) => languages[b].elements.length - languages[a].elements.length
   );
 };
+
+
+renderLanguage = (language, repositories, index) => {
+  // clearCards();
+  const cloneLanguageDOM = languageDOM.cloneNode(true);
+  cloneLanguageDOM.querySelector(
+    ".Language__name"
+  ).innerHTML = `<span style="color: #00000075"> #${index} </span> ${language}`;
+  const ul = renderListOfRepositories(repositories, username);
+  cloneLanguageDOM.querySelector(".Language__repository").appendChild(ul);
+  hide(loaderDOM);
+  show(cloneLanguageDOM);
+  deckDOM.appendChild(cloneLanguageDOM);
+};
