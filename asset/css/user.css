@@ -38,19 +38,24 @@
 }
 
 .Battlers__box {
-    width: 400px;
-    background: #ddd;
+    width: 500px;
+    background: rgb(238, 230, 230);
     display: flex;
     flex-direction: column;
     padding: 2rem;
     margin: 0 auto;
     border-radius: 10px;
+    box-shadow: 0 5px 2px 0 #ccc;
 }
 
 .Battlers__input {
     margin:0.5rem 1rem;
     display: flex;
-    align-items: center;
+    align-items: center;    
+}
+.Battlers__input--input{
+    width: 19rem;
+    border-radius: 5px;
 }
 .Battlers__add {
     margin: 0.5rem 1rem;
