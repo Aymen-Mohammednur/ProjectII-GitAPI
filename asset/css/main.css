@@ -166,6 +166,9 @@ button:disabled {
 .Cards__watching--icon{
   color:rgb(133, 67, 67)
 }
+.blue{
+  background-color: rgb(180, 117, 66);
+}
 
 /*
 loading taken from: https://projects.lukehaas.me/css-loaders/
