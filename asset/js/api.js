@@ -23,12 +23,12 @@ function fetchPopularRepos(lang='all') {
 function fetchUser(username) {
     return fetchFromUrl(`/users/${username}`);
 }
-function fetchUserRepoWithLang(username) {
+function fetchUserRepoWithLang(username, token) {
     return fetch("https://api.github.com/graphql", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: "token b98c4245964820250563ab6342f92b5e53328cf6",
+        Authorization: `token ${token}`,
       },
       body: JSON.stringify({
                     query :` { 
