@@ -1,20 +1,25 @@
 .Battlers__box {
-    width: 400px;
-    background: #ddd;
+    width: 500px;
+    height: 350px;
+    background: rgb(247, 235, 235);
     min-height: 50vh;
     display: flex;
     flex-direction: column;
     padding: 2rem;
     margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 2px 0 #ccc;
 }
 
 .Battlers__input {
     margin:0.5rem 1rem;
+    
     display: flex;
     align-items: center;
 }
 .Battlers__add {
     margin: 0.5rem 1rem;
+
 }
 .Battlers__users{
     margin: 1rem
