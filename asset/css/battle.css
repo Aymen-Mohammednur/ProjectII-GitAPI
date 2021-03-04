@@ -12,14 +12,21 @@
 }
 
 .Battlers__input {
-    margin:0.5rem 1rem;
-    
+    margin:1.5rem 1.5rem;
     display: flex;
     align-items: center;
 }
+.Battlers__input--input{
+    height: 2.5rem;
+    width: 17rem;
+    border-radius: 5px;
+}
 .Battlers__add {
     margin: 0.5rem 1rem;
-
+}
+.Battlers__add>button{
+    height: 2.5rem;
+    width: 5rem;
 }
 .Battlers__users{
     margin: 1rem
@@ -27,6 +34,9 @@
 .Battlers__submit{
     margin: 1rem auto;
     
+}
+.Battlers__submit>button{
+    height: 2.5rem;
 }
 .Battlers__user{
     display: flex;
