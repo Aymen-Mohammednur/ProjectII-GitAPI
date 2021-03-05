@@ -2,6 +2,7 @@ const cardDOM = document.querySelector("#cardTemplate");
 const deckDOM = document.querySelector(".Cards__lists");
 const navList = document.querySelectorAll(".Navigation__list");
 const loaderDOM = document.querySelector(".loader");
+const search = document.querySelector(".Search__input--input");
 
 function RepoDetail(data) {
   const {
@@ -80,8 +81,21 @@ function navigate(e) {
   });
 }
 
+function filter(e) {
+  query = e.target.value;
+  Array.from(document.querySelectorAll(".Cards__list")).forEach((card) => {
+    project_title = card.querySelector(".Cards__title").textContent;
+    if (!project_title.includes(query)) {
+      card.style = "display:none";
+    } else {
+      card.style = "display:block";
+    }
+  });
+}
+
 (function initialization() {
   show(loaderDOM);
+  search.addEventListener("keyup", filter);
   onClickEventToNavitgator();
   getPopulars().then((data) => {
     renderCards(data);
