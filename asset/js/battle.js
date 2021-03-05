@@ -21,6 +21,9 @@ function UserDetail(data) {
       name,
       public_repos,
       repos_url,
+      bio,
+      twitter_username,
+
     } = data;
   
     let forks = 0,
@@ -43,6 +46,8 @@ function UserDetail(data) {
       stargazers_count,
       watchers,
       score,
+      bio,
+      twitter_username
     };
 }
 
@@ -127,6 +132,9 @@ function renderCard(index, userDetail) {
     cloneCardDOM.querySelector(".Cards__avatar").alt = userDetail.name;
     cloneCardDOM.querySelector(".Cards__repos").textContent = userDetail.public_repos;
     cloneCardDOM.querySelector(".Card__location").textContent = userDetail.location;
+    cloneCardDOM.querySelector(".Cards__twitter").textContent =userDetail.twitter_username;
+    cloneCardDOM.querySelector(".Cards__bio").textContent = userDetail.bio;
+
     show(cloneCardDOM);
     deckDOM.appendChild(cloneCardDOM);
 }

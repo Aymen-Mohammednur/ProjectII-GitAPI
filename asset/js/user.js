@@ -6,6 +6,8 @@ const searchBtnDOM = document
   .querySelector(".Battlers__add")
   .querySelector("button");
 const loaderDOM = document.querySelector(".loader");
+const tokenInput = document.querySelector(".Token__input--input");
+const errorMsg = document.querySelector("#error-msg");
 
 let username = "aben-bel";
 
@@ -118,14 +120,20 @@ function search() {
   if (inputDOM.value === "" && inputOauth.value === "") return;
 
   clearCards();
-  show(loaderDOM);
   username = inputDOM.value;
-  token = inputOauth.value;
-  const reposToLang = getRepoWithLanguage(username, token).then((repos) => {
+  token = tokenInput.value;
+  if (token == ""){
+    errorMsg.style.display = "block";
+  }
+    else{
+    errorMsg.style.display = "none";
+    show(loaderDOM);
+    const reposToLang = getRepoWithLanguage(username, token).then((repos) => {
     const lang = getListOfLanguages(repos);
     const sortedKeys = getSortedLanguageKeys(lang);
     renderAllLanguages(sortedKeys, lang);
   });
+  } 
 }
 
 

@@ -43,11 +43,22 @@
           <div class="Battlers__submit">
             <button disabled>Battle Users</button>
           </div>
+          <div class = "centered-msg" id = "error-msg"> <p> Please enter a valid username. </p></div>
         </section>
         <div class="loader" style="display:none">Loading...</div>
         <section class="Cards__lists">
         </section>
       </main>
+          <!-- Battlers User Template-->
+    <div class="Battlers__user" style="display:none">
+            <img
+              class="Battlers__user--img"
+              src="https://via.placeholder.com/50"
+            />
+              <span class="Battlers__user--username">Username 1</span>
+              <i class="fas fa-times-circle Battlers__user--close"></i>
+    </div>
+       
        <!-- Battlers Card Template-->
     <div class="Cards__list" id="cardDOM"style="display: none" >
         <h3>#<span class="Cards__index">1</span></h3>
@@ -88,6 +99,14 @@
               class="fas fa-exclamation-triangle Cards--icon Cards__issues--icon"
             ></i>
             <span class="Cards__issues">42 </span> Open Issues
+          </li>
+          <li class="Cards__detail">
+            <i class="fab fa-twitter"></i>
+            <span class="Cards__twitter">42 </span> Twitter 
+          </li>
+          <li class="Cards__detail">
+            <i class="fas fa-user Cards--icon Cards__user--icon"></i>
+            <span class="Cards__bio">42 </span> Bio
           </li>
         </ul>
       </div>
